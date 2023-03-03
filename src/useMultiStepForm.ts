@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-type Step = { id: number; name: string; component: React.ReactElement }
+export type Step = { id: number; name: string; component: React.ReactElement }
 
 export const useMultiStepForm = (steps: Step[]) => {
   const [currentStepId, setCurrentStepId] = useState(0)
