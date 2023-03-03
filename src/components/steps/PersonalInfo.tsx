@@ -29,6 +29,7 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             className={`${
               errors.name ? 'border-primary-strawberry-red' : ''
             } focus:border-primary-purplish-blue border text-primary-marine-blue font-medium outline-none border-neutral-light-gray rounded-md px-4 py-2.5`}
+            placeholder='e.g Stephen King'
             autoFocus
             id='name'
             {...register('name', { required: true })}
@@ -47,6 +48,7 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             className={`${
               errors.email ? 'border-primary-strawberry-red' : ''
             } focus:border-primary-purplish-blue border text-primary-marine-blue font-medium outline-none border-neutral-light-gray rounded-md px-4 py-2.5`}
+            placeholder='e.g stephenking@lorem.com'
             id='email'
             type='email'
             {...register('email', { required: true })}
@@ -65,6 +67,7 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             className={`${
               errors.phoneNumber ? 'border-primary-strawberry-red' : ''
             } focus:border-primary-purplish-blue border text-primary-marine-blue font-medium outline-none border-neutral-light-gray rounded-md px-4 py-2.5`}
+            placeholder='e.g +1 234 567 890'
             id='phone-number'
             {...register('phoneNumber', { required: true })}
           />
