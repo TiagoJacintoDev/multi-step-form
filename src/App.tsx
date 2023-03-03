@@ -116,7 +116,7 @@ export const App = () => {
   return (
     <div className='lg:h-full flex items-center'>
       <form
-        className='lg:relative lg:grid grid-flow-col lg:rounded-xl w-full lg:w-[940px] mx-auto bg-white lg:p-4'
+        className='lg:relative lg:grid grid-flow-col lg:rounded-xl w-full lg:w-[940px] mx-auto bg-white lg:p-4 lg:shadow-lg'
         onSubmit={handleSubmit(onSubmit)}
       >
         <StepSelector
