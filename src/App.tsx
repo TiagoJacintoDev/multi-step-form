@@ -128,7 +128,7 @@ export const App = () => {
           <div
             className={`${
               showThankYou ? '' : 'md:mt-9'
-            } max-md:absolute max-md:py-6 max-md:top-24 max-md:px-5 max-md:bg-white max-md:rounded-lg max-md:w-11/12 max-md:-translate-x-1/2 max-md:left-1/2 md:relative md:w-[450px] max-md:shadow-lg`}
+            } max-md:absolute max-md:py-6 max-md:top-24 max-md:px-5 max-md:bg-white max-md:rounded-lg max-md:w-11/12 max-md:-translate-x-1/2 max-md:left-1/2 md:w-[450px] max-md:shadow-lg`}
           >
             {showThankYou ? <ThankYou /> : <>{step.component}</>}
           </div>
@@ -136,7 +136,7 @@ export const App = () => {
             <div className='max-md:bg-white w-full md:w-full md:text-lg absolute bottom-0 max-md:left-0 md:bottom-4 right-0 flex items-center max-md:p-3.5 md:font-medium'>
               {!isFirstStep && (
                 <button
-                  className='text-neutral-cool-gray'
+                  className='text-neutral-cool-gray hover:opacity-80'
                   onClick={() => setNavigationAction({ method: 'stepBack' })}
                 >
                   Go Back
@@ -145,7 +145,7 @@ export const App = () => {
               <button
                 className={`${
                   isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
-                } rounded-md w-28 md:w-32 py-2 md:py-2.5 text-white ml-auto`}
+                } rounded-md w-28 md:w-32 py-2 md:py-2.5 text-white ml-auto hover:opacity-90`}
                 onClick={() => setNavigationAction({ method: 'stepNext' })}
               >
                 {isLastStep ? 'Confirm' : 'Next Step'}

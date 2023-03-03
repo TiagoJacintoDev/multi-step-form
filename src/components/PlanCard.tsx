@@ -20,7 +20,9 @@ export const PlanCard = ({
   return (
     <button
       className={`${
-        isSelected ? 'bg-neutral-magnolia border-primary-purplish-blue' : ''
+        isSelected
+          ? 'bg-neutral-magnolia border-primary-purplish-blue'
+          : 'hover:border-primary-purplish-blue'
       } p-3.5 md:p-4 w-full max-md:flex items-center gap-5 md:w-1/3 text-left border rounded-lg`}
       type='button'
       onClick={handleClick}

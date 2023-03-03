@@ -20,7 +20,9 @@ export const AddOnCard = ({
   return (
     <button
       className={`${
-        isSelected ? 'bg-neutral-magnolia border-primary-purplish-blue' : ''
+        isSelected
+          ? 'bg-neutral-magnolia border-primary-purplish-blue'
+          : 'hover:border-primary-purplish-blue'
       } flex w-full justify-between items-center py-3 px-4 md:py-4 md:px-6 text-left border rounded-lg`}
       type='button'
       onClick={handleClick}
