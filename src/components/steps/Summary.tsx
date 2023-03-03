@@ -29,13 +29,13 @@ export const Summary = ({
 
   return (
     <>
-      <h1 className='mt-9 text-3xl font-bold text-primary-marine-blue'>
+      <h1 className='text-2xl lg:text-3xl font-bold text-primary-marine-blue'>
         Finishing up
       </h1>
-      <h2 className='text-neutral-cool-gray mt-2.5'>
+      <h2 className='text-neutral-cool-gray mt-1 lg:mt-2.5'>
         Double-check everything looks OK before confirming.
       </h2>
-      <div className='mt-8 bg-neutral-magnolia rounded-md py-3.5 px-6'>
+      <div className='mt-6 lg:mt-8 bg-neutral-magnolia rounded-md py-3.5 px-6'>
         <div className='flex items-center justify-between'>
           <div>
             <h3 className='text-primary-marine-blue font-bold'>
@@ -57,7 +57,7 @@ export const Summary = ({
             /{planDuration === 'monthly' ? 'mo' : 'yr'}
           </span>
         </div>
-        {selectedAddOns.length > 0 && <hr className='mt-6 mb-3.5' />}
+        {selectedAddOns.length > 0 && <hr className='mt-3.5 lg:mt-6 mb-3.5' />}
         {selectedAddOns.map(addOn => (
           <div className='mt-2 flex justify-between items-center'>
             <span className='text-neutral-cool-gray text-sm'>{addOn.name}</span>

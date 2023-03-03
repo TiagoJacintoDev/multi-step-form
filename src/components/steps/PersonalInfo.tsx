@@ -9,16 +9,16 @@ type Props = {
 export const PersonalInfo = ({ register, errors }: Props) => {
   return (
     <>
-      <h1 className='mt-9 text-3xl font-bold text-primary-marine-blue'>
+      <h1 className='text-2xl lg:text-3xl font-bold text-primary-marine-blue'>
         Personal info
       </h1>
-      <h2 className='text-neutral-cool-gray mt-2.5'>
+      <h2 className='text-neutral-cool-gray mt-1 lg:mt-2.5'>
         Please provide your name, email address, and phone number.
       </h2>
-      <div className='mt-8'>
+      <div className='mt-6 lg:mt-8'>
         <label className='flex flex-col gap-1' htmlFor='name'>
           <div className='flex justify-between'>
-            <span className='text-primary-marine-blue'>Name</span>
+            <span className='text-primary-marine-blue text-sm'>Name</span>
             {errors.name ? (
               <span className='text-primary-strawberry-red font-bold'>
                 This field is required
@@ -34,9 +34,9 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             {...register('name', { required: true })}
           />
         </label>
-        <label className='flex flex-col gap-1 mt-5' htmlFor='email'>
+        <label className='flex flex-col gap-1 mt-3.5 lg:mt-5' htmlFor='email'>
           <div className='flex justify-between'>
-            <span className='text-primary-marine-blue'>Email Address</span>
+            <span className='text-primary-marine-blue text-sm'>Email Address</span>
             {errors.email ? (
               <span className='text-primary-strawberry-red font-bold'>
                 This field is required
@@ -52,9 +52,9 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             {...register('email', { required: true })}
           />
         </label>
-        <label className='flex flex-col gap-1 mt-5' htmlFor='phone-number'>
+        <label className='flex flex-col gap-1 mt-3.5 lg:mt-5' htmlFor='phone-number'>
           <div className='flex justify-between'>
-            <span className='text-primary-marine-blue'>Phone Number</span>
+            <span className='text-primary-marine-blue text-sm'>Phone Number</span>
             {errors.phoneNumber ? (
               <span className='text-primary-strawberry-red font-bold'>
                 This field is required

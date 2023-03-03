@@ -17,13 +17,13 @@ export const SelectPlan = ({
 }: Props) => {
   return (
     <>
-      <h1 className='mt-9 text-3xl font-bold text-primary-marine-blue'>
+      <h1 className='text-2xl lg:text-3xl font-bold text-primary-marine-blue'>
         Select your plan
       </h1>
-      <h2 className='text-neutral-cool-gray mt-2.5'>
+      <h2 className='text-neutral-cool-gray mt-1 lg:mt-2.5'>
         You have the option of monthly or yearly billing.
       </h2>
-      <div className='mt-9 flex gap-4 items-center justify-between'>
+      <div className='mt-5 lg:mt-9 flex max-lg:flex-col gap-3 lg:gap-4 items-center justify-between'>
         {planTypes.map(currentType => (
           <PlanCard
             {...currentType}
@@ -35,7 +35,7 @@ export const SelectPlan = ({
           />
         ))}
       </div>
-      <div className='absolute top-80 mt-8 w-full gap-6 bg-neutral-magnolia rounded-lg p-3 flex items-center justify-center'>
+      <div className='lg:absolute top-80 mt-6 lg:mt-8 w-full gap-6 bg-neutral-magnolia rounded-lg p-2.5 lg:p-3 flex items-center justify-center'>
         <span
           className={`${
             planDuration === 'monthly'

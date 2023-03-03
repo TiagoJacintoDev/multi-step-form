@@ -16,13 +16,13 @@ export const SelectAddOns = ({
 }: Props) => {
   return (
     <>
-      <h1 className='mt-9 text-3xl font-bold text-primary-marine-blue'>
+      <h1 className='text-2xl lg:text-3xl font-bold text-primary-marine-blue'>
         Pick add-ons
       </h1>
-      <h2 className='text-neutral-cool-gray mt-2.5'>
+      <h2 className='text-neutral-cool-gray mt-1 lg:mt-2.5'>
         Add-ons help enhance your gaming experience.
       </h2>
-      <div className='flex flex-col gap-4 mt-8'>
+      <div className='flex flex-col gap-4 mt-6 lg:mt-8'>
         {addOns.map(addOn => (
           <AddOnCard
             key={addOn.name}

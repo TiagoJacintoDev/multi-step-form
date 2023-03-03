@@ -7,9 +7,12 @@ import { useMultiStepForm } from './useMultiStepForm'
 import ArcadeIcon from './assets/icon-arcade.svg'
 import AdvancedIcon from './assets/icon-advanced.svg'
 import ProIcon from './assets/icon-pro.svg'
+import DesktopSidebar from './assets/bg-sidebar-desktop.svg'
+import MobileSidebar from './assets/bg-sidebar-mobile.svg'
 import { SelectAddOns } from './components/steps/SelectAddOns'
 import { Summary } from './components/steps/Summary'
 import { ThankYou } from './components/ThankYou'
+import { useMediaQuery } from 'react-responsive'
 
 const planTypes = [
   { name: 'arcade', image: ArcadeIcon, pricePerMonth: 9 },
@@ -137,65 +140,73 @@ export const App = () => {
     navigateToStep(navigationAction.attributes)
   }
 
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1024px)',
+  })
+
   return (
-    <div className='h-full flex items-center'>
+    <div className='lg:h-full flex items-center'>
       <form
-        className='grid grid-flow-col rounded-xl w-[95%] lg:w-[940px] mx-auto bg-white p-4'
+        className='lg:grid grid-flow-col lg:rounded-xl w-full lg:w-[940px] mx-auto bg-white lg:p-4'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className='p-9 w-[274px] h-[568px] bg-[url(./assets/bg-sidebar-desktop.svg)]'>
-          {steps.map(step => (
-            <div className='flex items-center gap-3 mb-6' key={step.id}>
-              <button
-                className={`${
-                  currentStepId + 1 === step.id
-                    ? 'bg-primary-light-blue text-primary-marine-blue'
-                    : 'border border-white text-white'
-                } rounded-full h-[33px] w-[33px] text-sm font-bold`}
-                onClick={() =>
-                  setNavigationAction({
-                    method: 'goToStep',
-                    attributes: step.id - 1,
-                  })
-                }
-              >
-                {step.id}
-              </button>
-              <div>
-                <p className='text-xs text-primary-pastel-blue uppercase'>
-                  Step {step.id}
-                </p>
-                <p className='text-white text-sm uppercase font-bold'>{step.name}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className='relative w-[450px]'>
-          {showThankYou ? (
-            <ThankYou />
-          ) : (
-            <>
-              {step.component}
-              <div className='w-full text-lg absolute bottom-0 left-0 flex items-center'>
-                {!isFirstStep && (
-                  <button
-                    className='text-neutral-cool-gray font-medium'
-                    onClick={() => setNavigationAction({ method: 'stepBack' })}
-                  >
-                    Go Back
-                  </button>
-                )}
+        <div className='relative'>
+          <img
+            className='w-full'
+            src={isDesktopOrLaptop ? DesktopSidebar : MobileSidebar}
+          />
+          <div className='absolute top-6 left-1/2 -translate-x-1/2 lg:top-9 lg:left-9 max-lg:flex max-lg:gap-4'>
+            {steps.map(step => (
+              <div className='flex items-center gap-3 mb-6' key={step.id}>
                 <button
                   className={`${
-                    isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
-                  } font-medium rounded-md w-32 py-2.5 text-white ml-auto`}
-                  onClick={() => setNavigationAction({ method: 'stepNext' })}
+                    currentStepId + 1 === step.id
+                      ? 'bg-primary-light-blue text-primary-marine-blue'
+                      : 'border border-white text-white'
+                  } rounded-full h-[33px] w-[33px] text-sm font-bold`}
+                  onClick={() =>
+                    setNavigationAction({
+                      method: 'goToStep',
+                      attributes: step.id - 1,
+                    })
+                  }
                 >
-                  {isLastStep ? 'Confirm' : 'Next Step'}
+                  {step.id}
                 </button>
+                {isDesktopOrLaptop && (
+                  <div>
+                    <p className='text-xs text-primary-pastel-blue uppercase'>
+                      Step {step.id}
+                    </p>
+                    <p className='text-white text-sm uppercase font-bold'>
+                      {step.name}
+                    </p>
+                  </div>
+                )}
               </div>
-            </>
+            ))}
+          </div>
+        </div>
+        <div className='absolute max-lg:py-6 lg:mt-9 top-24 max-lg:px-5 max-lg:bg-white max-lg:rounded-lg max-lg:w-11/12 -translate-x-1/2 left-1/2 lg:relative lg:w-[450px] shadow-lg'>
+          {showThankYou ? <ThankYou /> : <div>{step.component}</div>}
+        </div>
+        <div className='bg-white w-full lg:text-lg absolute bottom-0 left-0 flex items-center p-3.5 lg:font-medium'>
+          {!isFirstStep && (
+            <button
+              className='text-neutral-cool-gray'
+              onClick={() => setNavigationAction({ method: 'stepBack' })}
+            >
+              Go Back
+            </button>
           )}
+          <button
+            className={`${
+              isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
+            } rounded-md w-28 lg:w-32 py-2 lg:py-2.5 text-white ml-auto`}
+            onClick={() => setNavigationAction({ method: 'stepNext' })}
+          >
+            {isLastStep ? 'Confirm' : 'Next Step'}
+          </button>
         </div>
       </form>
     </div>
