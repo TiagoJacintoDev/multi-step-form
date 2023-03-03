@@ -147,15 +147,15 @@ export const App = () => {
   return (
     <div className='lg:h-full flex items-center'>
       <form
-        className='lg:grid grid-flow-col lg:rounded-xl w-full lg:w-[940px] mx-auto bg-white lg:p-4'
+        className='lg:relative lg:grid grid-flow-col lg:rounded-xl w-full lg:w-[940px] mx-auto bg-white lg:p-4'
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className='relative'>
           <img
-            className='w-full'
+            className='max-lg:w-full'
             src={isDesktopOrLaptop ? DesktopSidebar : MobileSidebar}
           />
-          <div className='absolute top-6 left-1/2 -translate-x-1/2 lg:top-9 lg:left-9 max-lg:flex max-lg:gap-4'>
+          <div className='absolute top-6 left-1/2 max-lg:-translate-x-1/2 lg:top-9 lg:left-9 max-lg:flex max-lg:gap-4'>
             {steps.map(step => (
               <div className='flex items-center gap-3 mb-6' key={step.id}>
                 <button
@@ -187,27 +187,33 @@ export const App = () => {
             ))}
           </div>
         </div>
-        <div className='absolute max-lg:py-6 lg:mt-9 top-24 max-lg:px-5 max-lg:bg-white max-lg:rounded-lg max-lg:w-11/12 -translate-x-1/2 left-1/2 lg:relative lg:w-[450px] shadow-lg'>
+        <div
+          className={`${
+            showThankYou ? '' : 'lg:mt-9'
+          } absolute lg:-ml-12 max-lg:py-6  max-lg:top-24 max-lg:px-5 max-lg:bg-white max-lg:rounded-lg max-lg:w-11/12 -translate-x-1/2 left-1/2 lg:relative lg:w-[450px] max-lg:shadow-lg`}
+        >
           {showThankYou ? <ThankYou /> : <div>{step.component}</div>}
         </div>
-        <div className='bg-white w-full lg:text-lg absolute bottom-0 left-0 flex items-center p-3.5 lg:font-medium'>
-          {!isFirstStep && (
+        {!showThankYou && (
+          <div className='max-lg:bg-white w-full lg:w-[450px] lg:text-lg absolute bottom-0 max-lg:left-0 lg:bottom-4 lg:right-24 flex items-center max-lg:p-3.5 lg:font-medium'>
+            {!isFirstStep && (
+              <button
+                className='text-neutral-cool-gray'
+                onClick={() => setNavigationAction({ method: 'stepBack' })}
+              >
+                Go Back
+              </button>
+            )}
             <button
-              className='text-neutral-cool-gray'
-              onClick={() => setNavigationAction({ method: 'stepBack' })}
+              className={`${
+                isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
+              } rounded-md w-28 lg:w-32 py-2 lg:py-2.5 text-white ml-auto`}
+              onClick={() => setNavigationAction({ method: 'stepNext' })}
             >
-              Go Back
+              {isLastStep ? 'Confirm' : 'Next Step'}
             </button>
-          )}
-          <button
-            className={`${
-              isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
-            } rounded-md w-28 lg:w-32 py-2 lg:py-2.5 text-white ml-auto`}
-            onClick={() => setNavigationAction({ method: 'stepNext' })}
-          >
-            {isLastStep ? 'Confirm' : 'Next Step'}
-          </button>
-        </div>
+          </div>
+        )}
       </form>
     </div>
   )

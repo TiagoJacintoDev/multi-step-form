@@ -35,7 +35,7 @@ export const SelectPlan = ({
           />
         ))}
       </div>
-      <div className='lg:absolute top-80 mt-6 lg:mt-8 w-full gap-6 bg-neutral-magnolia rounded-lg p-2.5 lg:p-3 flex items-center justify-center'>
+      <div className='lg:absolute top-72 mt-6 lg:mt-8 w-full gap-6 bg-neutral-magnolia rounded-lg p-2.5 lg:p-3 flex items-center justify-center'>
         <span
           className={`${
             planDuration === 'monthly'
