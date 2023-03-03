@@ -9,14 +9,14 @@ type Props = {
 export const PersonalInfo = ({ register, errors }: Props) => {
   return (
     <>
-      <h1 className='text-2xl lg:text-3xl font-bold text-primary-marine-blue'>
+      <h1 className='text-2xl md:text-3xl font-bold text-primary-marine-blue'>
         Personal info
       </h1>
-      <h2 className='text-neutral-cool-gray mt-1 lg:mt-3'>
+      <h2 className='text-neutral-cool-gray mt-1 md:mt-3'>
         Please provide your name, email address, and phone number.
       </h2>
-      <div className='mt-6 lg:mt-8'>
-        <label className='flex flex-col gap-1.5 lg:gap-2' htmlFor='name'>
+      <div className='mt-6 md:mt-8'>
+        <label className='flex flex-col gap-1.5 md:gap-2' htmlFor='name'>
           <div className='flex justify-between'>
             <span className='text-primary-marine-blue text-sm'>Name</span>
             {errors.name ? (
@@ -35,7 +35,7 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             {...register('name', { required: true })}
           />
         </label>
-        <label className='flex flex-col gap-1 mt-3.5 lg:mt-5' htmlFor='email'>
+        <label className='flex flex-col gap-1 mt-3.5 md:mt-5' htmlFor='email'>
           <div className='flex justify-between'>
             <span className='text-primary-marine-blue text-sm'>Email Address</span>
             {errors.email ? (
@@ -54,7 +54,7 @@ export const PersonalInfo = ({ register, errors }: Props) => {
             {...register('email', { required: true })}
           />
         </label>
-        <label className='flex flex-col gap-1 mt-3.5 lg:mt-5' htmlFor='phone-number'>
+        <label className='flex flex-col gap-1 mt-3.5 md:mt-5' htmlFor='phone-number'>
           <div className='flex justify-between'>
             <span className='text-primary-marine-blue text-sm'>Phone Number</span>
             {errors.phoneNumber ? (

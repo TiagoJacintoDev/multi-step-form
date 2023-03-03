@@ -114,9 +114,9 @@ export const App = () => {
   }
 
   return (
-    <div className='lg:h-full flex items-center'>
+    <div className='md:h-full flex items-center'>
       <form
-        className='lg:relative lg:grid grid-flow-col lg:rounded-xl w-full lg:w-[940px] mx-auto bg-white lg:p-4 lg:shadow-lg'
+        className='md:relative md:flex gap-[11%] md:rounded-xl w-full md:w-[940px] mx-auto bg-white md:p-4 md:shadow-lg'
         onSubmit={handleSubmit(onSubmit)}
       >
         <StepSelector
@@ -124,33 +124,35 @@ export const App = () => {
           currentStepId={currentStepId}
           setNavigationAction={setNavigationAction}
         />
-        <div
-          className={`${
-            showThankYou ? '' : 'lg:mt-9'
-          } absolute lg:-ml-12 max-lg:py-6  max-lg:top-24 max-lg:px-5 max-lg:bg-white max-lg:rounded-lg max-lg:w-11/12 -translate-x-1/2 left-1/2 lg:relative lg:w-[450px] max-lg:shadow-lg`}
-        >
-          {showThankYou ? <ThankYou /> : <>{step.component}</>}
-        </div>
-        {!showThankYou && (
-          <div className='max-lg:bg-white w-full lg:w-[450px] lg:text-lg absolute bottom-0 max-lg:left-0 lg:bottom-4 lg:right-24 flex items-center max-lg:p-3.5 lg:font-medium'>
-            {!isFirstStep && (
-              <button
-                className='text-neutral-cool-gray'
-                onClick={() => setNavigationAction({ method: 'stepBack' })}
-              >
-                Go Back
-              </button>
-            )}
-            <button
-              className={`${
-                isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
-              } rounded-md w-28 lg:w-32 py-2 lg:py-2.5 text-white ml-auto`}
-              onClick={() => setNavigationAction({ method: 'stepNext' })}
-            >
-              {isLastStep ? 'Confirm' : 'Next Step'}
-            </button>
+        <div className='md:relative'>
+          <div
+            className={`${
+              showThankYou ? '' : 'md:mt-9'
+            } max-md:absolute max-md:py-6 max-md:top-24 max-md:px-5 max-md:bg-white max-md:rounded-lg max-md:w-11/12 max-md:-translate-x-1/2 max-md:left-1/2 md:relative md:w-[450px] max-md:shadow-lg`}
+          >
+            {showThankYou ? <ThankYou /> : <>{step.component}</>}
           </div>
-        )}
+          {!showThankYou && (
+            <div className='max-md:bg-white w-full md:w-full md:text-lg absolute bottom-0 max-md:left-0 md:bottom-4 right-0 flex items-center max-md:p-3.5 md:font-medium'>
+              {!isFirstStep && (
+                <button
+                  className='text-neutral-cool-gray'
+                  onClick={() => setNavigationAction({ method: 'stepBack' })}
+                >
+                  Go Back
+                </button>
+              )}
+              <button
+                className={`${
+                  isLastStep ? 'bg-primary-purplish-blue' : 'bg-primary-marine-blue'
+                } rounded-md w-28 md:w-32 py-2 md:py-2.5 text-white ml-auto`}
+                onClick={() => setNavigationAction({ method: 'stepNext' })}
+              >
+                {isLastStep ? 'Confirm' : 'Next Step'}
+              </button>
+            </div>
+          )}
+        </div>
       </form>
     </div>
   )

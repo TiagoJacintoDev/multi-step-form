@@ -15,17 +15,17 @@ type Props = {
 }
 
 export const StepSelector = ({ steps, currentStepId, setNavigationAction }: Props) => {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1024px)',
+  const isTabletOrLaptop = useMediaQuery({
+    query: '(min-width: 768px)',
   })
 
   return (
     <div className='relative'>
       <img
-        className='max-lg:w-full'
-        src={isDesktopOrLaptop ? DesktopSidebar : MobileSidebar}
+        className='max-md:w-full'
+        src={isTabletOrLaptop ? DesktopSidebar : MobileSidebar}
       />
-      <div className='absolute top-6 left-1/2 max-lg:-translate-x-1/2 lg:top-9 lg:left-9 max-lg:flex max-lg:gap-4'>
+      <div className='absolute top-6 left-1/2 max-md:-translate-x-1/2 md:top-9 md:left-9 max-md:flex max-md:gap-4'>
         {steps.map(step => (
           <div className='flex items-center gap-3 mb-6' key={step.id}>
             <button
@@ -43,7 +43,7 @@ export const StepSelector = ({ steps, currentStepId, setNavigationAction }: Prop
             >
               {step.id}
             </button>
-            {isDesktopOrLaptop && (
+            {isTabletOrLaptop && (
               <div>
                 <p className='text-xs text-primary-pastel-blue uppercase'>
                   Step {step.id}

@@ -21,11 +21,11 @@ export const AddOnCard = ({
     <button
       className={`${
         isSelected ? 'bg-neutral-magnolia border-primary-purplish-blue' : ''
-      } flex w-full justify-between items-center py-3 px-4 lg:py-4 lg:px-6 text-left border rounded-lg`}
+      } flex w-full justify-between items-center py-3 px-4 md:py-4 md:px-6 text-left border rounded-lg`}
       type='button'
       onClick={handleClick}
     >
-      <div className='flex items-center gap-3.5 lg:gap-6'>
+      <div className='flex items-center gap-3.5 md:gap-6'>
         <div
           className={`${
             isSelected
@@ -37,10 +37,10 @@ export const AddOnCard = ({
         </div>
         <div>
           <p className='font-bold text-primary-marine-blue'>{name}</p>
-          <p className='text-neutral-cool-gray max-lg:text-sm'>{description}</p>
+          <p className='text-neutral-cool-gray max-md:text-sm'>{description}</p>
         </div>
       </div>
-      <p className='text-primary-purplish-blue max-lg:text-sm'>
+      <p className='text-primary-purplish-blue max-md:text-sm'>
         +$
         {planDuration === 'monthly'
           ? pricePerMonth
